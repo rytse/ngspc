@@ -1,0 +1,14 @@
+name: ngspc
+channels:
+    - defaults
+    - conda-forge
+dependencies:
+    - python=3.8
+    - jupyterlab
+    - numpy
+    - scipy
+    - matplotlib
+    - scikit-learn
+    - pandas
+    - librosa
+    - keras
