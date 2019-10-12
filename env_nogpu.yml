@@ -3,7 +3,7 @@ channels:
     - defaults
     - conda-forge
 dependencies:
-    - python=3.8
+    - python=3.7
     - jupyterlab
     - numpy
     - scipy
@@ -12,3 +12,6 @@ dependencies:
     - pandas
     - librosa
     - keras
+    - resampy
+    - six
+    - pysoundfile
