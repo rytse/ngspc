@@ -3,15 +3,17 @@ channels:
     - defaults
     - conda-forge
 dependencies:
-    - python=3.7
-    - jupyterlab
-    - numpy
+    - python=3.6
+    - numpy=1.16.5
     - scipy
+    - jupyterlab
     - matplotlib
     - scikit-learn
     - pandas
     - librosa
-    - keras-gpu
     - resampy
     - six
     - pysoundfile
+    - pip
+    - pip:
+        - tensorflow-gpu==2.0.0-rc1
