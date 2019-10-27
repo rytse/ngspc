@@ -14,6 +14,4 @@ dependencies:
     - resampy
     - six
     - pysoundfile
-    - pip
-    - pip:
-        - tensorflow==2.0.0-rc1
+    - keras>=2.2
