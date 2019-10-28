@@ -14,7 +14,7 @@ dependencies:
     - resampy
     - six
     - pysoundfile
-    - PIL
+    - pillow
     - pip
     - pip:
         - tensorflow-gpu==2.0.0-rc1
