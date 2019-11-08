@@ -9,7 +9,7 @@ import librosa.display
 
 id_n = 0
 
-for filename in glob.iglob('./'+ '**/*.wav', recursive=True):
+for filename in glob.iglob('../data/raw/'+ '**/*.wav', recursive=True):
     cat = filename.split('/')[3][:-5]
     y, sr = librosa.load(filename)
 
