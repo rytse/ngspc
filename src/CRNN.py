@@ -32,7 +32,8 @@ def KerasCrnn(img_height, img_width, n_labels, nc=1, nh=8):
         padding = 'same' if ps[i] else 'valid'
 
         if( i == 0):
-            model.add(Conv2D(nOut, ks[i], strides=ss[i], input_shape=(img_width, img_height, 3), padding=padding, name='conv{0}'.format(i)))
+            model.add(Conv2D(nOut, ks[i], strides=ss[i], input_shape=(img_width, img_height, 1), padding=padding, name='conv{0}'.format(i)))
+            # model.add(Conv2D(nOut, ks[i], strides=ss[i], input_shape=(img_width, img_height, 3), padding=padding, name='conv{0}'.format(i)))
             # model.add(Conv2D(nOut, ks[i], strides=ss[i], input_shape=(img_height, None, 1), padding=padding, name='conv{0}'.format(i)))
         else:
             model.add(Conv2D(nOut, ks[i], strides=ss[i], padding=padding, name='conv{0}'.format(i)))

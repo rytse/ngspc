@@ -10,15 +10,20 @@ K.set_image_data_format('channels_last')
 
 class FTempWeightsSaver(Callback):
     def on_epoch_end(self, epoch, logs={}):
-        name = '../models/ftemp.h5'
-        ftemp_crnn.save()
-        print('Saved "%s"' % name)
+        # Save model architecture
+        model_json = ftemp_crnn.to_json()
+        with open('../models/ftemp.json', 'w') as json_file:
+            json_file.write(model_json)
+
+        # Save model weights
+        ftemp_crnn.save_weights('../models/ftemp.h5')
+
+        print('Saved model')
 
 
-# Fourier Tempogram
 IMG_HEIGHT = 256
 IMG_WIDTH = 256
-N_LABELS = 21
+N_LABELS = 20
 BATCH_SIZE = 1
 LSTM_SIZE = 32
 N_ITER = 10
@@ -32,8 +37,9 @@ ftemp_crnn.compile(loss='categorical_crossentropy',
 
 train_datagen = ImageDataGenerator()
 train_generator = train_datagen.flow_from_directory(
-    directory='../data/ftemp/train/',
-    color_mode='rgb',
+    directory='../data/gen/ftemp/train/',
+    # color_mode='rgb',
+    color_mode='grayscale',
     target_size=(IMG_WIDTH, IMG_HEIGHT),
     batch_size=BATCH_SIZE,
     class_mode='categorical',
@@ -42,8 +48,9 @@ train_generator = train_datagen.flow_from_directory(
 )
 valid_datagen = ImageDataGenerator()
 valid_generator = valid_datagen.flow_from_directory(
-    directory='../data/ftemp/valid/',
-    color_mode='rgb',
+    directory='../data/gen/ftemp/valid/',
+    # color_mode='rgb',
+    color_mode='grayscale',
     target_size=(IMG_WIDTH, IMG_HEIGHT),
     batch_size=BATCH_SIZE,
     class_mode='categorical',
